@@ -2,43 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 ///-----------------------------------------------------------------------------------------------------------///
-///   Class:          baseArcherclass
-///   Description:    This is the base archer class.
+///   Class:          baseMageClass
+///   Description:    This is the base Mage class.
 ///   Author:         Nicolas Rivarola                   Date: 23/03/2019
-///   Notes:          The currents stats are based of Ashe from League of Legends
+///   Notes:          The currents stats are based of Ziggs from League of Legends
 ///-----------------------------------------------------------------------------------------------------------///
 
-
-public class baseArcherClass : baseCharacterClass
+public class baseMageClass : baseCharacterClass
 {
-
-    public baseArcherClass()
+    public baseMageClass()
     {
 
-        CharacterClassName = "Archer";
-        CharacterClassDescription = "A swift and precise long range killer. Often you become aware of its presence by the trail of bodies that appear.";
+        CharacterClassName = "Mage";
+        CharacterClassDescription = "Hungry for power, driven by ambition. These characters have talents that are unheard of.";
 
 
         ///-----------------///
         ///     BASE STATS
         ///----------------///
 
-        Health = 539;
-        HealthRegeneration = 3.5;
-        Mana = 280;
-        ManaRegeneration = 6.972;
+        Health = 530;
+        HealthRegeneration = 6.5;
+        Mana = 480;
+        ManaRegeneration = 8.5;
 
         //      OFFENSE
-        AttackDamage = 61;
-        AttackSpeed = 0.658;
-        AbilityPower = 0;
+        AttackDamage = 54;
+        AttackSpeed = 0.656;
+        AbilityPower = 60;
         PhysicalPenetration = 0;
         MagicPenetration = 0;
 
         //      DEFENSE
-        PhysicalResistance = 26;
+        PhysicalResistance = 21.544;
         MagicResistance = 30;
         LifeSteal = 0;
         SpellVamp = 0;
@@ -46,7 +43,7 @@ public class baseArcherClass : baseCharacterClass
 
         //      OTHER
         MovementSpeed = 325;
-        Range = 600;
+        Range = 550;
         CooldownReduction = 0;
     }
 }

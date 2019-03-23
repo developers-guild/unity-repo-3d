@@ -2,51 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 ///-----------------------------------------------------------------------------------------------------------///
-///   Class:          baseArcherclass
-///   Description:    This is the base archer class.
+///   Class:          baseKnightclass
+///   Description:    This is the base Knight class.
 ///   Author:         Nicolas Rivarola                   Date: 23/03/2019
-///   Notes:          The currents stats are based of Ashe from League of Legends
+///   Notes:          The currents stats are based of Garen from League of Legends
 ///-----------------------------------------------------------------------------------------------------------///
 
-
-public class baseArcherClass : baseCharacterClass
+public class baseKnightClass : baseCharacterClass
 {
 
-    public baseArcherClass()
+    public baseKnightClass()
     {
 
-        CharacterClassName = "Archer";
-        CharacterClassDescription = "A swift and precise long range killer. Often you become aware of its presence by the trail of bodies that appear.";
+        CharacterClassName = "Knight";
+        CharacterClassDescription = "The noble and glorious characters whose main goal is defend the indefendable. They go on endless adventures in search for honor and glory.";
 
 
         ///-----------------///
         ///     BASE STATS
         ///----------------///
 
-        Health = 539;
-        HealthRegeneration = 3.5;
-        Mana = 280;
-        ManaRegeneration = 6.972;
+        Health = 616.28;
+        HealthRegeneration = 8;
+        Mana = 400;
+        ManaRegeneration = 7.5;
 
         //      OFFENSE
-        AttackDamage = 61;
-        AttackSpeed = 0.658;
+        AttackDamage = 66;
+        AttackSpeed = 0.625;
         AbilityPower = 0;
         PhysicalPenetration = 0;
         MagicPenetration = 0;
 
         //      DEFENSE
-        PhysicalResistance = 26;
-        MagicResistance = 30;
+        PhysicalResistance = 36;
+        MagicResistance = 32.1;
         LifeSteal = 0;
         SpellVamp = 0;
         Tenacity = 0;
 
         //      OTHER
-        MovementSpeed = 325;
-        Range = 600;
+        MovementSpeed = 340;
+        Range = 175;
         CooldownReduction = 0;
     }
+    
 }
