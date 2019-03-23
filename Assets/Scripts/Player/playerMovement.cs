@@ -1,57 +1,108 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.ThirdPerson;
 
-public class playerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
-	// Use this for initialization
-	
-    public Camera cam;
-    public UnityEngine.AI.NavMeshAgent agent;
-    public ThirdPersonCharacter character;
+    public bool isGrounded;
+    public bool isCrouching;
 
+    private float speed;
+    private float w_speed = 0.05f;
+    private float c_speed = 0.025f;
+    public float rotSpeed;
+    public float jumpHeight;
+    Rigidbody rb;
+    Animator anim;
+    CapsuleCollider col_size;
+
+    // Start is called before the first frame update
     void Start()
     {
-        agent.updateRotation = false;
+        rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+        col_size = GetComponent<CapsuleCollider>();
+        isGrounded = true;
     }
 
-
     // Update is called once per frame
-    void Update () {
-
-        // When user clicks mouseleft button
-        if (Input.GetMouseButtonDown(0))
-        {   
-            // Trace position using camera Ray 
-            // The ray basically sennds a line from the camera to the mouse click
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            // The hit stores the coordinate i
-            RaycastHit hit;
-            // did the mouse 
-            if(Physics.Raycast(ray, out hit))
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            if(isCrouching)
             {
-                //move player
-                agent.SetDestination(hit.point);
+                isCrouching = false;
+                anim.SetBool("isCrouching", false);
+                col_size.height = 2;
+                col_size.center = new Vector3(0, 1, 0);
             }
-
+            else
+            {
+                isCrouching = true;
+                anim.SetBool("isCrouching", true);
+                speed = c_speed;
+                col_size.height = 1;
+                col_size.center = new Vector3(0, 0.5f, 0);
+            }
         }
-        if(agent.remainingDistance > agent.stoppingDistance)
+
+        var x = Input.GetAxis("Vertical") * speed;
+        var y = Input.GetAxis("Horizontal") * rotSpeed;
+
+        transform.Translate(x, 0, 0);
+        transform.Rotate(0, y, 0);
+
+        if(Input.GetKey(KeyCode.Space)&& isGrounded == true)
         {
-            character.Move(agent.desiredVelocity, false, false);       
+            rb.AddForce(0, jumpHeight, 0);
+            anim.SetTrigger("isJumping");
+            isCrouching = false;
+            isGrounded = false;
         }
-        else
+        if (isCrouching)
         {
-            // vector 0 means no speed
-            character.Move(Vector3.zero, false, false);
+            speed = c_speed;
+            if(Input.GetKey(KeyCode.D))
+            {
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isIdle", false);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isIdle", false);
+            }
+            else
+            {
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isIdle", true);
+            }
         }
+        else if (!isCrouching)
+        {
+            speed = w_speed;
+            if (Input.GetKey(KeyCode.D))
+            {
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isIdle", false);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                anim.SetBool("isWalking", true);
+                anim.SetBool("isIdle", false);
+            }
+            else
+            {
+                anim.SetBool("isWalking", false);
+                anim.SetBool("isIdle", true);
+            }
+        }
+    }
 
-        /*
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
-        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
-
-        transform.Rotate(0, x, 0);
-        transform.Translate(0, 0, z);
-        */
+    private void OnCollisionEnter()
+    {
+        isGrounded = true;
     }
 }

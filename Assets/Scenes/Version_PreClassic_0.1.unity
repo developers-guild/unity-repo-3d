@@ -99,8 +99,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentSlope: 46.8
+    agentClimb: 0.7
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -118,7 +118,50 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 573719499}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &336323034
+--- !u!114 &336323032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336323031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7c7d04512c315a4e84db225a8600c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1376817113}
+  agent: {fileID: 336323034}
+  character: {fileID: 336323038}
+--- !u!4 &336323033 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 7e15121f5f042ed46aba81406403f2d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 573719499}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &336323034
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336323031}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!136 &336323036
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,10 +172,10 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2.66782
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &336323035
+  m_Center: {x: 0, y: 0.8339102, z: 0}
+--- !u!54 &336323037
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,9 +189,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &336323036
+--- !u!114 &336323038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,13 +200,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 336323031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ba9bf4eb32ac97458c020084fc9e742, type: 3}
+  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGrounded: 0
-  isCrouching: 0
-  rotSpeed: 0
-  jumpHeight: 0
+  m_MovingTurnSpeed: 360
+  m_StationaryTurnSpeed: 180
+  m_JumpPower: 6
+  m_GravityMultiplier: 2
+  m_RunCycleLegOffset: 0.2
+  m_MoveSpeedMultiplier: 1
+  m_AnimSpeedMultiplier: 1
+  m_GroundCheckDistance: 0.2
 --- !u!1001 &573719499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -237,6 +284,7 @@ GameObject:
   - component: {fileID: 947738115}
   - component: {fileID: 947738114}
   - component: {fileID: 947738113}
+  - component: {fileID: 947738117}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -316,6 +364,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &947738117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947738112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df27b9289d1e8c4fb82e0df4f4673ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 23800000, guid: b0bcb83a39fe45e4cbf398288f4d7086, type: 2}
 --- !u!1 &1284984410
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +473,7 @@ GameObject:
   - component: {fileID: 1376817114}
   - component: {fileID: 1376817113}
   - component: {fileID: 1376817112}
+  - component: {fileID: 1376817115}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -461,12 +539,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1376817111}
   m_LocalRotation: {x: 0.11201741, y: -0.6981777, z: 0.11201741, w: 0.6981777}
-  m_LocalPosition: {x: 5.229, y: 3.92, z: -12.74}
+  m_LocalPosition: {x: 5.229, y: 3.92, z: -6.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 18.23, y: -90, z: 0}
+--- !u!114 &1376817115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376817111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0851136bfe40fe458cc2e7d80619a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerTransform: {fileID: 336323033}
+  SmoothFactor: 0.746
 --- !u!1 &1725761904
 GameObject:
   m_ObjectHideFlags: 0
