@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class baseTurretScript : MonoBehaviour
+public abstract class baseTurretScript : MonoBehaviour
 {
     private Transform target;
     public float range = 15f;
     public Color turretRangeColor = Color.red;
-    public string enemyTag = "Enemy";
 
     public Transform partToRotate;
 
@@ -20,7 +19,7 @@ public class baseTurretScript : MonoBehaviour
     void UpdateTarget()
     {
         // retrieves all gameobjects that have the tag specified in the inspector
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(GetEnemyTag(tag));
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
         // Loop through all ocurrences looking for an enemy in range
@@ -48,6 +47,8 @@ public class baseTurretScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Attack();
+
         if (target == null)  
             return;
 
@@ -59,8 +60,15 @@ public class baseTurretScript : MonoBehaviour
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
+    protected string GetEnemyTag(string tag)
+    {
+        return tag == "RedTeam" ? "BlueTeam" : "RedTeam";
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, range);
     }
+
+    public abstract void Attack();
 }

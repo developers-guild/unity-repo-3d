@@ -11,7 +11,7 @@ using UnityEngine;
 ///-----------------------------------------------------------------------------------------------------------///
 
 
-public class baseCharacterClass 
+public class baseCharacterClass : MonoBehaviour
 {
     private string characterClassName;
     private string characterClassDescription;
