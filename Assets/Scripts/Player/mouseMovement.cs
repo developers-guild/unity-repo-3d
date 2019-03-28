@@ -27,6 +27,7 @@ public class mouseMovement : MonoBehaviour
         {
             // Trace position using camera Ray 
             // The ray basically sennds a line from the camera to the mouse click
+            
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             // The hit stores the coordinate i
             RaycastHit hit;
