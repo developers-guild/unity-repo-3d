@@ -7,8 +7,20 @@ public class defaultTurret : baseTurretScript
 {
     public float interval = 1.0f;
     public float damage = 0.0f;
+    //public GameObject prefab;
 
     private float mTotalTime = 0.0f;
+
+    //public void Start()
+    //{
+    //    //prefab = Resources.Load("Assets/Prefabs/Turret 1") as GameObject;
+    //}
+
+    //public void CreateAt(Vector3 pos)
+    //{
+    //    var turret = Instantiate(prefab, pos, Quaternion.identity);
+    //    turret.transform.position = pos;
+    //}
 
     public override void Attack()
     {
@@ -35,7 +47,10 @@ public class defaultTurret : baseTurretScript
     {
         // TODO: FIX THIS
         var baseProj = GameObject.Find("Projectile");
+
+        // NOTE: This does not fully copy the object
         var proj = Object.Instantiate(baseProj);
+        proj.transform.position = baseProj.transform.position;
         proj.name = $"{name}_Projectile{Time.time}";
         var aimProj = proj.GetComponent<projectileAim>();
         aimProj.target = player.transform;

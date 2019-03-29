@@ -22,6 +22,28 @@ public class startGame : MonoBehaviour
         mButton.onClick.AddListener(EnablePlayers);
     }
 
+    void Update()
+    {
+        //if left click is pressed,
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray;
+            RaycastHit hit;
+
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if(Physics.Raycast(ray, out hit))
+            {
+                var baseTurret = GameObject.Find("Turret");
+
+                var turret = Object.Instantiate(baseTurret);
+                //var turret = new defaultTurret();
+                //turret.CreateAt(new Vector3(hit.point.x, hit.point.y + 10, hit.point.z));
+                turret.transform.position = hit.point;
+                turret.name = $"{name}_Turret{Time.time}";
+            }
+        }
+    }
+
     void EnablePlayers()
     {
         foreach(var player in players)

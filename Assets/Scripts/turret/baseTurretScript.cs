@@ -57,7 +57,7 @@ public abstract class baseTurretScript : MonoBehaviour
 
         Vector3 rotation = lookRotation.eulerAngles;
 
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        partToRotate.rotation = Quaternion.Euler(rotation.x+12, rotation.y, 0f);
     }
 
     protected string GetEnemyTag(string tag)
