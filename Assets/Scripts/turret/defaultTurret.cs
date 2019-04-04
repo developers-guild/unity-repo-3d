@@ -37,7 +37,11 @@ public class defaultTurret : baseTurretScript
         var baseProj = GameObject.Find("Projectile");
         var proj = Object.Instantiate(baseProj);
         proj.name = $"{name}_Projectile{Time.time}";
+
+
+
         var aimProj = proj.GetComponent<projectileAim>();
+        aimProj.transform.position.Set(4f, 2f, -4f);
         aimProj.target = player.transform;
         aimProj.isMoving = true;
 

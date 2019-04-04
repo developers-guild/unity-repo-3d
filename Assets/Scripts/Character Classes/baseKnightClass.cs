@@ -24,7 +24,6 @@ public class baseKnightClass : baseCharacterClass
         ///     BASE STATS
         ///----------------///
         playerHealth.startingHealth = 600;
-        playerHealth.currentHealth = 600;
         //Health = 616.28;
         HealthRegeneration = 8;
         Mana = 400;

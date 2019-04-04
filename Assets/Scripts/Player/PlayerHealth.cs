@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         // Setting up the references.
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         //playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
         //playerShooting = GetComponentInChildren<PlayerShooting>();
@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-
+        Debug.Log("Took dmg amount:");
 
         // Set the damaged flag so the screen will flash.
         damaged = true;
@@ -80,6 +80,10 @@ public class PlayerHealth : MonoBehaviour
             // ... it should die.
             Death();
         }
+
+        
+
+
     }
 
     void Death()
@@ -92,15 +96,29 @@ public class PlayerHealth : MonoBehaviour
         //playerShooting.DisableEffects();
 
         // Tell the animator that the player is dead.
-        anim.SetTrigger("Die");
+        //anim.SetTrigger("Die");
 
         // Set the audiosource to play the death clip and play it (this will stop the hurt sound from playing).
         //playerAudio.clip = deathClip;
         //playerAudio.Play();
 
         // Turn off the movement and shooting scripts.
-        playerMovement.enabled = false;
+        //playerMovement.enabled = false;
         //playerShooting.enabled = false;
+
+        Respawn();
+
+
+    }
+
+    void Respawn()
+    {
+        //transform.position.Set(5, 0, 0);
+
+        transform.position.Set(5f, 0, 0);
+
+        currentHealth = startingHealth;
+        isDead = false;
     }
 
 
