@@ -52,10 +52,23 @@ public class defaultTurret : baseTurretScript
         var proj = Object.Instantiate(baseProj);
         proj.transform.position = baseProj.transform.position;
         proj.name = $"{name}_Projectile{Time.time}";
+
+
+
         var aimProj = proj.GetComponent<projectileAim>();
         aimProj.transform.position = transform.position;
         aimProj.target = player.transform;
         aimProj.isMoving = true;
+
+
+
+        var bluePlayer = GameObject.Find("BluePlayer");
+        if (bluePlayer != null)
+        {
+            var bphealth = bluePlayer.GetComponent<PlayerHealth>();
+            bphealth.TakeDamage(25);
+        }
+
     }
 
     private float CalculateDistance(GameObject entity)

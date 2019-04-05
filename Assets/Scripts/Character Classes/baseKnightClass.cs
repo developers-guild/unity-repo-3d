@@ -14,16 +14,17 @@ public class baseKnightClass : baseCharacterClass
 
     public baseKnightClass()
     {
-
+        
         CharacterClassName = "Knight";
         CharacterClassDescription = "The noble and glorious characters whose main goal is defend the indefendable. They go on endless adventures in search for honor and glory.";
+
 
 
         ///-----------------///
         ///     BASE STATS
         ///----------------///
-
-        Health = 616.28;
+        playerHealth.startingHealth = 600;
+        //Health = 616.28;
         HealthRegeneration = 8;
         Mana = 400;
         ManaRegeneration = 7.5;

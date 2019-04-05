@@ -13,6 +13,8 @@ using UnityEngine;
 
 public class baseCharacterClass : MonoBehaviour
 {
+    public PlayerHealth playerHealth;
+
     private string characterClassName;
     private string characterClassDescription;
 
@@ -155,6 +157,10 @@ public class baseCharacterClass : MonoBehaviour
         set { cooldownReduction = value; }
     }
 
+    public baseCharacterClass()
+    {
+        playerHealth = new PlayerHealth();
+    }
 
 
 }
