@@ -53,6 +53,7 @@ public class defaultTurret : baseTurretScript
         proj.transform.position = baseProj.transform.position;
         proj.name = $"{name}_Projectile{Time.time}";
         var aimProj = proj.GetComponent<projectileAim>();
+        aimProj.transform.position = transform.position;
         aimProj.target = player.transform;
         aimProj.isMoving = true;
     }
