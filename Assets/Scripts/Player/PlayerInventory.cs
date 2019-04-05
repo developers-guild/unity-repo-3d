@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public Text text;
     const int STARTINGGOLD = 500;
     int currentGold;
     // Start is called before the first frame update
@@ -21,7 +20,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void OnGoldChanged()
     {
-        text.text = "Gold: " + currentGold.ToString();
+        //text.text = "Gold: " + currentGold.ToString();
     }
 
     public void loseGold(int amount)
