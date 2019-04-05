@@ -21,4 +21,9 @@ public class projectileAim : MonoBehaviour
             transform.Translate(direction * speed * Time.deltaTime);
         }
     }
+
+    void OnTriggerEnter()
+    {
+        GameObject.Destroy(gameObject);
+    }
 }
