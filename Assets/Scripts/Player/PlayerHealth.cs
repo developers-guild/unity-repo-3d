@@ -114,12 +114,19 @@ public class PlayerHealth : MonoBehaviour
     void Respawn()
     {
         //transform.position.Set(5, 0, 0);
+        //transform.position.Set(5f, 0f, 0f);
 
-        transform.position.Set(5f, 0, 0);
+        transform.position =new Vector3(-1.65f, 0f, -5f);
+
+        //transform.position.x. = 5f;
+
 
         currentHealth = startingHealth;
         isDead = false;
     }
+
+
+
 
 
 
