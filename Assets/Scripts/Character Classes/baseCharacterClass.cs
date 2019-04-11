@@ -14,6 +14,7 @@ using UnityEngine;
 public class baseCharacterClass : MonoBehaviour
 {
     public PlayerHealth playerHealth;
+    public PlayerInventory playerInventory;
 
     private string characterClassName;
     private string characterClassDescription;
@@ -160,6 +161,7 @@ public class baseCharacterClass : MonoBehaviour
     public baseCharacterClass()
     {
         playerHealth = new PlayerHealth();
+        playerInventory = new PlayerInventory();
     }
 
 

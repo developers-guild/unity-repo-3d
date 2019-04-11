@@ -44,13 +44,13 @@ public class PlayerHealth : MonoBehaviour
         if (damaged)
         {
             // ... set the colour of the damageImage to the flash colour.
-            //damageImage.color = flashColour;
+            damageImage.color = flashColour;
         }
         // Otherwise...
         else
         {
             // ... transition the colour back to clear.
-            //damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
         }
 
         // Reset the damaged flag.
@@ -81,10 +81,9 @@ public class PlayerHealth : MonoBehaviour
             Death();
         }
 
-        
-
 
     }
+
 
     void Death()
     {
@@ -106,6 +105,8 @@ public class PlayerHealth : MonoBehaviour
         //playerMovement.enabled = false;
         //playerShooting.enabled = false;
 
+
+
         Respawn();
 
 
@@ -116,7 +117,7 @@ public class PlayerHealth : MonoBehaviour
         //transform.position.Set(5, 0, 0);
         //transform.position.Set(5f, 0f, 0f);
 
-        transform.position =new Vector3(-1.65f, 0f, -5f);
+        transform.position = new Vector3(-1.65f, 0f, -5f);
 
         //transform.position.x. = 5f;
 
@@ -124,6 +125,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = startingHealth;
         isDead = false;
     }
+
 
 
 
