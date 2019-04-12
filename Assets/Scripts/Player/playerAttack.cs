@@ -7,11 +7,11 @@ public class playerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -26,7 +26,8 @@ public class playerAttack : MonoBehaviour
                 if(tag == "RedTeam")
                 {
                     Debug.Log("Clicked on an enemy: " + hit.transform.name);
-                   // hit.transform.GetComponent<PlayerHealth>().TakeDamage(10);    Get which player is clicking who ex: Call knightclass.BasicAttack(target)
+                    GetComponent<baseCharacter>().basicAttack(hit);
+                    //hit.transform.GetComponent<PlayerHealth>().TakeDamage(10);    //Get which player is clicking who ex: Call Warriorclass.BasicAttack(target)
                 }
             }
         }

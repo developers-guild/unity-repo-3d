@@ -38,9 +38,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
         // If the player has just been damaged...
         if (damaged)
         {
@@ -70,7 +69,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
 
         // Set the health bar's value to the current health.
-        healthSlider.value = currentHealth;
+       //healthSlider.value = currentHealth;
    
         // Play the hurt sound effect.
         //playerAudio.Play();

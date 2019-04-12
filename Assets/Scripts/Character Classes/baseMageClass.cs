@@ -3,47 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 
 ///-----------------------------------------------------------------------------------------------------------///
-///   Class:          baseMageClass
-///   Description:    This is the base Mage class.
+///   Class:          baseWarriorclass
+///   Description:    This is the base Warrior class.
 ///   Author:         Nicolas Rivarola                   Date: 23/03/2019
-///   Notes:          The currents stats are based of Ziggs from League of Legends
+///   Notes:          The currents stats are based of Garen from League of Legends
 ///-----------------------------------------------------------------------------------------------------------///
 
-public class baseMageClass : baseCharacterClass
+public class baseMageClass : baseCharacter
 {
+    public ClassEnum currentClass { get => ClassEnum.Mage; }
+    public PlayerHealth playerHealth { get; set; }
+    public playerAttack playerAttack { get; set; }
+    public playerMovement playerMovement { get; set; }
+    public PlayerInventory playerInventory { get; set; }
+
+    // Create class to hold Player Info/Lore and have it in one big enum
+    public string characterClassDescription { get => "wahoo"; }
     public baseMageClass()
     {
 
-        CharacterClassName = "Mage";
-        CharacterClassDescription = "Hungry for power, driven by ambition. These characters have talents that are unheard of.";
+        // Make constructor to initialize playerHealth
+        playerHealth = new PlayerHealth();
+        playerHealth.startingHealth = 600;
+    }
 
+    public void basicAttack(RaycastHit target)
+    {
+        throw new System.NotImplementedException();
+    }
 
-        ///-----------------///
-        ///     BASE STATS
-        ///----------------///
+    public void eAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        Health = 530;
-        HealthRegeneration = 6.5;
-        Mana = 480;
-        ManaRegeneration = 8.5;
+    public void fAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      OFFENSE
-        AttackDamage = 54;
-        AttackSpeed = 0.656;
-        AbilityPower = 60;
-        PhysicalPenetration = 0;
-        MagicPenetration = 0;
+    public void leftShiftAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      DEFENSE
-        PhysicalResistance = 21.544;
-        MagicResistance = 30;
-        LifeSteal = 0;
-        SpellVamp = 0;
-        Tenacity = 0;
+    public void qAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      OTHER
-        MovementSpeed = 325;
-        Range = 550;
-        CooldownReduction = 0;
+    public void Update()
+    {
+        throw new System.NotImplementedException();
     }
 }

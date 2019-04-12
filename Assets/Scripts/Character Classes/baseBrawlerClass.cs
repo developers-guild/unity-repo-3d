@@ -3,47 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 
 ///-----------------------------------------------------------------------------------------------------------///
-///   Class:          baseBrawlerClass
-///   Description:    This is the base Brawler class.
+///   Class:          baseWarriorclass
+///   Description:    This is the base Warrior class.
 ///   Author:         Nicolas Rivarola                   Date: 23/03/2019
-///   Notes:          The currents stats are based of Vi from League of Legends
+///   Notes:          The currents stats are based of Garen from League of Legends
 ///-----------------------------------------------------------------------------------------------------------///
 
-public class baseBrawlerClass : baseCharacterClass
+public class baseBrawlerClass : baseCharacter
 {
+    public ClassEnum currentClass { get => ClassEnum.Brawler; }
+    public PlayerHealth playerHealth { get; set; }
+    public playerAttack playerAttack { get; set; }
+    public playerMovement playerMovement { get; set; }
+    public PlayerInventory playerInventory { get; set; }
+
+    // Create class to hold Player Info/Lore and have it in one big enum
+    public string characterClassDescription { get => "wahoo"; }
     public baseBrawlerClass()
     {
 
-        CharacterClassName = "Brawler";
-        CharacterClassDescription = "With exceptional ability to beat and get beaten, these characters humble anyone in their sight. They are always ready for a fight.";
+        // Make constructor to initialize playerHealth
+        playerHealth = new PlayerHealth();
+        playerHealth.startingHealth = 600;
+    }
 
+    public void basicAttack(RaycastHit target)
+    {
+        throw new System.NotImplementedException();
+    }
 
-        ///-----------------///
-        ///     BASE STATS
-        ///----------------///
+    public void eAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        Health = 585;
-        HealthRegeneration = 10;
-        Mana = 300;
-        ManaRegeneration = 8;
+    public void fAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      OFFENSE
-        AttackDamage = 64;
-        AttackSpeed = 0.644;
-        AbilityPower = 0;
-        PhysicalPenetration = 0;
-        MagicPenetration = 0;
+    public void leftShiftAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      DEFENSE
-        PhysicalResistance = 32;
-        MagicResistance = 32.1;
-        LifeSteal = 0;
-        SpellVamp = 0;
-        Tenacity = 0;
+    public void qAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      OTHER
-        MovementSpeed = 340;
-        Range = 125;
-        CooldownReduction = 0;
+    public void Update()
+    {
+        throw new System.NotImplementedException();
     }
 }

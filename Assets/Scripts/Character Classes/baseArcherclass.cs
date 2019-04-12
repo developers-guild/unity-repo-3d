@@ -2,51 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 ///-----------------------------------------------------------------------------------------------------------///
-///   Class:          baseArcherclass
-///   Description:    This is the base archer class.
+///   Class:          baseWarriorclass
+///   Description:    This is the base Warrior class.
 ///   Author:         Nicolas Rivarola                   Date: 23/03/2019
-///   Notes:          The currents stats are based of Ashe from League of Legends
+///   Notes:          The currents stats are based of Garen from League of Legends
 ///-----------------------------------------------------------------------------------------------------------///
 
-
-public class baseArcherClass : baseCharacterClass
+public class baseArcherClass : baseCharacter
 {
+    public ClassEnum currentClass { get => ClassEnum.Archer; }
+    public PlayerHealth playerHealth { get; set; }
+    public playerAttack playerAttack { get; set; }
+    public playerMovement playerMovement { get; set; }
+    public PlayerInventory playerInventory { get; set; }
 
+    // Create class to hold Player Info/Lore and have it in one big enum
+    public string characterClassDescription { get => "wahoo"; }
     public baseArcherClass()
     {
 
-        CharacterClassName = "Archer";
-        CharacterClassDescription = "A swift and precise long range killer. Often you become aware of its presence by the trail of bodies that appear.";
+        // Make constructor to initialize playerHealth
+        playerHealth = new PlayerHealth();
+        playerHealth.startingHealth = 600;
+    }
 
+    public void basicAttack(RaycastHit target)
+    {
+        throw new System.NotImplementedException();
+    }
 
-        ///-----------------///
-        ///     BASE STATS
-        ///----------------///
+    public void eAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        Health = 539;
-        HealthRegeneration = 3.5;
-        Mana = 280;
-        ManaRegeneration = 6.972;
+    public void fAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      OFFENSE
-        AttackDamage = 61;
-        AttackSpeed = 0.658;
-        AbilityPower = 0;
-        PhysicalPenetration = 0;
-        MagicPenetration = 0;
+    public void leftShiftAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      DEFENSE
-        PhysicalResistance = 26;
-        MagicResistance = 30;
-        LifeSteal = 0;
-        SpellVamp = 0;
-        Tenacity = 0;
+    public void qAbility()
+    {
+        throw new System.NotImplementedException();
+    }
 
-        //      OTHER
-        MovementSpeed = 325;
-        Range = 600;
-        CooldownReduction = 0;
+    public void Update()
+    {
+        throw new System.NotImplementedException();
     }
 }

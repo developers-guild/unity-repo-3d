@@ -7,17 +7,24 @@ public class playerMovement : MonoBehaviour
     public float speed;
     public float jumpForce;
     private bool isColliding = true;
+    private Rigidbody collider;
+
+    public playerMovement(Rigidbody rigidbody)
+    {
+        this.collider = rigidbody;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("boo");
         speed = 5f;
         jumpForce = 8f;
 
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         var rigidBody = GetComponent<Rigidbody>();
         var axis = Input.GetAxis("Horizontal");
