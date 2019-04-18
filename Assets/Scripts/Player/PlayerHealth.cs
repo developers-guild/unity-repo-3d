@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth
 {
 
     public int startingHealth = 600;                            // The amount of health the player starts the game with.
@@ -17,20 +17,24 @@ public class PlayerHealth : MonoBehaviour
 
     Animator anim;                                              // Reference to the Animator component.
     //AudioSource playerAudio;                                    // Reference to the AudioSource component.
-    playerMovement playerMovement;                              // Reference to the player's movement.
     //PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
     bool isDead;                                                // Whether the player is dead.
     bool damaged;                                               // True when the player gets damaged.
+    private Rigidbody rigidbody;
 
-
+    public PlayerHealth(Rigidbody rigidbody, int startingHealth)
+    {
+        this.rigidbody = rigidbody;
+        this.startingHealth = startingHealth;
+        this.currentHealth = startingHealth;
+    }
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         // Setting up the references.
         //anim = GetComponent<Animator>();
         //playerAudio = GetComponent<AudioSource>();
-        playerMovement = GetComponent<playerMovement>();
         //playerShooting = GetComponentInChildren<PlayerShooting>();
 
         // Set the initial health of the player.
@@ -116,7 +120,7 @@ public class PlayerHealth : MonoBehaviour
         //transform.position.Set(5, 0, 0);
         //transform.position.Set(5f, 0f, 0f);
 
-        transform.position =new Vector3(-1.65f, 0f, -5f);
+        rigidbody.transform.position = new Vector3(-1.65f, 0f, -5f);
 
         //transform.position.x. = 5f;
 

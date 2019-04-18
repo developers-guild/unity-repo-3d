@@ -12,3 +12,7 @@ public enum ClassEnum {
     Tamer,
     Warrior
 }
+
+public enum ClassDescEnum { }
+
+public enum ClassLoreEnum { }

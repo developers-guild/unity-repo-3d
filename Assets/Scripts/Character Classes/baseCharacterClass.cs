@@ -18,7 +18,7 @@ public interface baseCharacter
 
     // Player Components
     PlayerHealth playerHealth { get; set; }
-    playerAttack playerAttack { get; set; }
+    playerAttack playerAttack { get; set; }   //Do we need to implement this or is this part of the specific class file
     playerMovement playerMovement { get; set; }
     PlayerInventory playerInventory { get; set; }
 
@@ -33,6 +33,7 @@ public interface baseCharacter
     void leftShiftAbility();
 
     // Unity Methods
+    void Start();
     void Update();
 
 

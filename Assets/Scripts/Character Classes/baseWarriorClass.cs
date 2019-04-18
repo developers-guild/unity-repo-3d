@@ -7,6 +7,7 @@ using UnityEngine;
 ///   Description:    This is the base Warrior class.
 ///   Author:         Nicolas Rivarola                   Date: 23/03/2019
 ///   Notes:          The currents stats are based of Garen from League of Legends
+///   Wiki Page:      https://github.com/developers-guild/unity-repo-3d/wiki/Warrior
 ///-----------------------------------------------------------------------------------------------------------///
 
 
@@ -37,14 +38,8 @@ public class baseWarriorClass : MonoBehaviour, baseCharacter
     public string characterClassDescription { get => "The noble and glorious characters whose main goal is defend the indefendable. They go on endless adventures in search for honor and glory."; }
     public baseWarriorClass()
     {
+        // Do actual initialization in Start()
 
-        // Make constructor to initialize playerHealth
-        playerHealth = new PlayerHealth();
-        playerHealth.startingHealth = 600;
-
-        playerAttack = new playerAttack();
-        playerMovement = new playerMovement(GetComponent<Rigidbody>());
-        playerInventory = new PlayerInventory();
 
 
         ///-----------------///
@@ -73,6 +68,22 @@ public class baseWarriorClass : MonoBehaviour, baseCharacter
         //MovementSpeed = 340;
         //Range = 175;
         //CooldownReduction = 0;
+    }
+
+    public void Start()
+    {
+        // Make constructor to initialize playerHealth
+        playerHealth = new PlayerHealth(GetComponent<Rigidbody>(), 600);
+        playerHealth.Start();
+
+        playerAttack = new playerAttack();
+        playerAttack.Start();
+
+        playerMovement = new playerMovement(GetComponent<Rigidbody>());
+        playerMovement.Start();
+
+        playerInventory = new PlayerInventory();
+        playerInventory.Start();
     }
 
     public void basicAttack(RaycastHit target)
@@ -104,10 +115,9 @@ public class baseWarriorClass : MonoBehaviour, baseCharacter
 
     public void Update()
     {
-        Debug.Log("wahhooo1231231");
         playerHealth.Update();
         playerInventory.Update();
-        playerMovement.FixedUpdate();
+        playerMovement.Update();
         playerAttack.Update();
     }
 }

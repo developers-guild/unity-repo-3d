@@ -6,8 +6,10 @@ public class PlayerInventory : MonoBehaviour
 {
     const int STARTINGGOLD = 500;
     int currentGold;
+
+    public PlayerInventory() { }
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         currentGold = STARTINGGOLD;
     }

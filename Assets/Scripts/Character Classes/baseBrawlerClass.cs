@@ -23,8 +23,13 @@ public class baseBrawlerClass : baseCharacter
     {
 
         // Make constructor to initialize playerHealth
-        playerHealth = new PlayerHealth();
-        playerHealth.startingHealth = 600;
+        //playerHealth = new PlayerHealth();
+        //playerHealth.startingHealth = 600;
+    }
+
+    public void Start()
+    {
+        throw new System.NotImplementedException();
     }
 
     public void basicAttack(RaycastHit target)
