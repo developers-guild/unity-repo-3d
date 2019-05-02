@@ -8,31 +8,31 @@ public class playerMovement
     public float jumpForce;
     private bool isColliding = true;
     private Rigidbody rigidBody;
+    public bool isFacingLeft = true;
 
     public playerMovement(Rigidbody rigidbody)
     {
         this.rigidBody = rigidbody;
-    }
-
-    // Start is called before the first frame update
-    public void Start()
-    {
-        Debug.Log("Start of player movement");
         speed = 5f;
         jumpForce = 8f;
-
     }
 
     // Update is called once per frame
     public void Update()
     {
         var axis = Input.GetAxis("Horizontal");
+        //Detect which way you are facing
+        isFacingLeft = axis != 0 ? axis < 0 : isFacingLeft; 
+
         rigidBody.transform.Translate(0, 0 , speed * axis * Time.deltaTime);
 
+        //Jump
         if (Input.GetKey(KeyCode.Space) && isGrounded())
         {
             rigidBody.velocity = Vector3.up * jumpForce;
         }
+
+        
     }
 
     bool isGrounded()

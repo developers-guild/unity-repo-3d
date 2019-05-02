@@ -26,14 +26,13 @@ public interface baseCharacter
     string characterClassDescription { get; } // create class to hold Player Info/Lore and have it in one big enum
 
     // Player Methods
-    void basicAttack(RaycastHit target);
+    void basicAttack();
     void qAbility();
     void eAbility();
     void fAbility();
     void leftShiftAbility();
 
     // Unity Methods
-    void Start();
     void Update();
 
 

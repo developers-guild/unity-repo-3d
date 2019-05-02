@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory
 {
     const int STARTINGGOLD = 500;
     int currentGold;
 
-    public PlayerInventory() { }
-    // Start is called before the first frame update
-    public void Start()
-    {
+    public PlayerInventory() {
         currentGold = STARTINGGOLD;
     }
 

@@ -1810,11 +1810,6 @@ GameObject:
   - component: {fileID: 1554695653}
   - component: {fileID: 1554695652}
   - component: {fileID: 1554695657}
-  - component: {fileID: 1554695661}
-  - component: {fileID: 1554695658}
-  - component: {fileID: 1554695662}
-  - component: {fileID: 1554695659}
-  - component: {fileID: 1554695660}
   - component: {fileID: 1554695656}
   m_Layer: 0
   m_Name: BluePlayer
@@ -1907,6 +1902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a5170ea558649409da6c21d7b9f98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 614884760}
 --- !u!54 &1554695657
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1923,75 +1919,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1554695658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554695651}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3355e4d336deeab48a3af346516cb759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1554695659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554695651}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc050f0c023fc640b7d4380221da214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 600
-  currentHealth: 0
-  healthSlider: {fileID: 614884760}
-  damageImage: {fileID: 0}
-  deathClip: {fileID: 0}
-  flashSpeed: 5
-  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
---- !u!114 &1554695660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554695651}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18885301da695ed48a3c0bff0e6cd79e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1554695661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554695651}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0010f5fd1f3fe434ebbedaa136fef96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.51
-  jumpForce: 0.12
---- !u!114 &1554695662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554695651}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30e89a73cd30f242bee948c3820be9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1693077886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,8 +2045,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0010f5fd1f3fe434ebbedaa136fef96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  jumpForce: 0
 --- !u!1 &1725761904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,8 +2352,8 @@ GameObject:
   - component: {fileID: 2080763912}
   - component: {fileID: 2080763911}
   - component: {fileID: 2080763910}
-  - component: {fileID: 2080763916}
   - component: {fileID: 2080763909}
+  - component: {fileID: 2080763916}
   - component: {fileID: 2080763915}
   m_Layer: 0
   m_Name: RedPlayer
@@ -2444,11 +2369,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080763908}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60fadc5b4f116fb4fa01bc63df0c1f26, type: 3}
+  m_Script: {fileID: 11500000, guid: d3a5170ea558649409da6c21d7b9f98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
 --- !u!54 &2080763910
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2544,9 +2470,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080763908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3355e4d336deeab48a3af346516cb759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2080763916
@@ -2556,18 +2486,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080763908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cc050f0c023fc640b7d4380221da214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 200
-  currentHealth: 0
-  healthSlider: {fileID: 0}
-  damageImage: {fileID: 0}
-  deathClip: {fileID: 0}
-  flashSpeed: 5
-  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &651837293057640097
 PrefabInstance:
   m_ObjectHideFlags: 0

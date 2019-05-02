@@ -27,17 +27,6 @@ public class PlayerHealth
         this.rigidbody = rigidbody;
         this.startingHealth = startingHealth;
         this.currentHealth = startingHealth;
-    }
-
-    // Start is called before the first frame update
-    public void Start()
-    {
-        // Setting up the references.
-        //anim = GetComponent<Animator>();
-        //playerAudio = GetComponent<AudioSource>();
-        //playerShooting = GetComponentInChildren<PlayerShooting>();
-
-        // Set the initial health of the player.
         currentHealth = startingHealth;
     }
 
@@ -64,8 +53,6 @@ public class PlayerHealth
 
     public void TakeDamage(int amount)
     {
-        Debug.Log("Took dmg amount:");
-
         // Set the damaged flag so the screen will flash.
         damaged = true;
 
@@ -73,7 +60,6 @@ public class PlayerHealth
         currentHealth -= amount;
 
         // Set the health bar's value to the current health.
-       //healthSlider.value = currentHealth;
    
         // Play the hurt sound effect.
         //playerAudio.Play();
@@ -92,7 +78,6 @@ public class PlayerHealth
 
     void Death()
     {
-        Debug.Log("Is dead");
         // Set the death flag so this function won't be called again.
         isDead = true;
 

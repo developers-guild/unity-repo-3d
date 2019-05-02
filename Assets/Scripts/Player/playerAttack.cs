@@ -2,39 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerAttack : MonoBehaviour
+public class playerAttack
 {
-    // Start is called before the first frame update
-    public void Start()
+    baseCharacter baseChar;
+    public playerAttack(baseCharacter baseChar)
     {
-
+        this.baseChar = baseChar;
     }
-
     // Update is called once per frame
     public void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray;
-            RaycastHit hit;
-
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                string tag = hit.transform.tag;
-                if(tag == "RedTeam")
-                {
-                    Debug.Log("Clicked on an enemy: " + hit.transform.name);
-                    GetComponent<baseCharacter>().basicAttack(hit);
-                    //hit.transform.GetComponent<PlayerHealth>().TakeDamage(10);    //Get which player is clicking who ex: Call Warriorclass.BasicAttack(target)
-                }
-            }
+            baseChar.basicAttack();
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
+            baseChar.qAbility();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
