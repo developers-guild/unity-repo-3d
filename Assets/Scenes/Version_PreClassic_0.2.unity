@@ -251,6 +251,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 44332073}
   m_CullTransparentMesh: 0
+--- !u!1 &178373676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 651837293057640097}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 178373677}
+  m_Layer: 0
+  m_Name: Turret (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &178373677
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 651837293057640097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178373676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202985061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,9 +1766,6 @@ GameObject:
   - component: {fileID: 1554695652}
   - component: {fileID: 1554695657}
   - component: {fileID: 1554695656}
-  - component: {fileID: 1554695658}
-  - component: {fileID: 1554695659}
-  - component: {fileID: 1554695660}
   m_Layer: 0
   m_Name: BluePlayer
   m_TagString: BlueTeam
@@ -1827,11 +1854,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1554695651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60fadc5b4f116fb4fa01bc63df0c1f26, type: 3}
+  m_Script: {fileID: 11500000, guid: d3a5170ea558649409da6c21d7b9f98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 100
+  healthSlider: {fileID: 614884760}
 --- !u!54 &1554695657
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1848,54 +1874,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1554695658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554695651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3355e4d336deeab48a3af346516cb759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
-  playerInventory: {fileID: 0}
---- !u!114 &1554695659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554695651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cc050f0c023fc640b7d4380221da214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 600
-  currentHealth: 0
-  healthSlider: {fileID: 614884760}
-  damageImage: {fileID: 1191061958}
-  deathClip: {fileID: 0}
-  flashSpeed: 5
-  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
---- !u!114 &1554695660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1554695651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18885301da695ed48a3c0bff0e6cd79e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentGold: 25
-  GoldAmount: {fileID: 1318181205}
-  timeSinceLastUpdate: 0
 --- !u!1 &1693077886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1909,6 +1887,7 @@ GameObject:
   - component: {fileID: 1693077890}
   - component: {fileID: 1693077889}
   - component: {fileID: 1693077888}
+  - component: {fileID: 1693077892}
   m_Layer: 0
   m_Name: HUDCanvas
   m_TagString: Untagged
@@ -2009,6 +1988,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1693077892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693077886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0010f5fd1f3fe434ebbedaa136fef96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1725761904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2308,7 @@ GameObject:
   - component: {fileID: 2080763911}
   - component: {fileID: 2080763910}
   - component: {fileID: 2080763909}
+  - component: {fileID: 2080763916}
   - component: {fileID: 2080763915}
   m_Layer: 0
   m_Name: RedPlayer
@@ -2332,13 +2324,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080763908}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60fadc5b4f116fb4fa01bc63df0c1f26, type: 3}
+  m_Script: {fileID: 11500000, guid: d3a5170ea558649409da6c21d7b9f98c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  jumpForce: 0
+  healthSlider: {fileID: 0}
 --- !u!54 &2080763910
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2434,13 +2425,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080763908}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3355e4d336deeab48a3af346516cb759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
-  playerInventory: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2080763916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080763908}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc050f0c023fc640b7d4380221da214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &651837293057640097
 PrefabInstance:
   m_ObjectHideFlags: 0

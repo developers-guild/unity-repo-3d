@@ -65,8 +65,8 @@ public class defaultTurret : baseTurretScript
         var bluePlayer = GameObject.Find("BluePlayer");
         if (bluePlayer != null)
         {
-            var bphealth = bluePlayer.GetComponent<PlayerHealth>();
-            bphealth.TakeDamage(25);
+            var bphealth = bluePlayer.GetComponent<PlayerMaster>().baseClass.playerHealth.currentHealth;
+            bluePlayer.GetComponent<PlayerMaster>().baseClass.playerHealth.TakeDamage(25);
         }
 
     }

@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory
 {
-    public const int STARTINGGOLD = 50;
-    public int currentGold;
-    public Text GoldAmount;
-    public float timeSinceLastUpdate;
-    private float timeSinceLastAdd;
+    const int STARTINGGOLD = 500;
+    int currentGold;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public PlayerInventory() {
         currentGold = STARTINGGOLD;
         timeSinceLastUpdate = Time.time;
         timeSinceLastAdd = 0;
@@ -21,7 +16,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
 
         //if(timeSinceLastUpdate > Time.fixedTime + 10f )
